@@ -1,0 +1,33 @@
+<div class="container profileBlock mt-4"> 
+{{#each profile}}
+<div class="card cardprofile">
+  <img src="{{trimArray photo.0.path}}" class="card-img-top" alt="...">
+  <div class="card-body">
+      <h5 class="card-title">
+          <span class="badge badge-danger float-right">{{formatRelative date postDate}}</span>
+          <h5 class="text-success text-uppercase">
+              {{firstname}}
+          </h5></h5>
+          <h5 class="text-success text-lowercase border-bottom">
+              {{lastname}}
+          </h5>
+          <h5 class="text-success text-lowercase">
+              {{email}}
+          </h5>
+          <h5 class="text-success text-uppercase">
+              {{phonenumber}}
+          </h5>
+    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+    <a href="/profile/editprofile/{{id}}" class="btn btn-primary btn-block">Edit profile</a>
+
+    <form action="/profile/deleteprofile/{{id}}?_method=DELETE" method="post" class="mt-2">
+         <input type="hidden" name="_method" value="DELETE">
+         <button type="submit" class="btn btn-danger btn-block">Delete</button>
+    </form>
+  </div>
+</div>
+
+{{else}}
+<h1>No profile found</h1>
+{{/each}}
+</div>
